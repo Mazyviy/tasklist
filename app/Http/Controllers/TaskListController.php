@@ -24,7 +24,7 @@ class TaskListController extends Controller
             'task'=>'string',
             'user_id'=>'integer',
         ]);
-        TaskList::create($task);
+        TaskList::firstOrCreate(['task' => $task['task'], 'user_id'=>Auth::user()->id]);
         return redirect()->route('index');
     }
 
