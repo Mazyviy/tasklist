@@ -27,7 +27,6 @@
         </thead>
         <tbody>
             @foreach ($tasks as $task)
-            @if($task->user_id == Auth::user()->id)
             <tr>
                 <td class="table-text">
                     <div>{{ $task->task }}</div>
@@ -40,7 +39,6 @@
                     </form>
                 </td>
             </tr>
-            @endif
             @endforeach
         </tbody>
     </table>
