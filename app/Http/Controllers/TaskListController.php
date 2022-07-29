@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TaskList;
-
+use Auth;
 
 class TaskListController extends Controller
 {
@@ -14,7 +14,7 @@ class TaskListController extends Controller
 
     public function index()
     {
-        $tasks = TaskList::all();
+        $tasks = TaskList::all()->where('user_id', Auth::user()->id);
         return view('tasklist.index', compact('tasks'));
     }
 
